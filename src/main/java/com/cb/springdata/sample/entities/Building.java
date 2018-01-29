@@ -34,6 +34,4 @@ public class Building {
     @Field
     private List<String> phoneNumbers = new ArrayList<>();
 
-    @Field
-    private String color;
 }
