@@ -64,7 +64,7 @@ public class BuildingServiceIntegrationTest extends SampleApplicationTests {
                 COMPANY_2, new ArrayList<>(), new ArrayList<>());
         buildingService.save(building2);
 
-        val newBuildings = buildingService.findByCompanyIdAndNameLike(COMPANY_2, "cou%");
+        val newBuildings = buildingService.findByCompanyIdAndNameLike(COMPANY_2, "cou%", 0);
 
         assertThat(newBuildings, hasSize(1));
         assertThat(buildingName, equalTo(newBuildings.get(0).getName()));

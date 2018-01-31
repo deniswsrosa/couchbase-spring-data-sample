@@ -3,6 +3,7 @@ package com.cb.springdata.sample.service;
 import com.cb.springdata.sample.entities.Building;
 import com.cb.springdata.sample.repositories.BuildingRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 
 import javax.validation.Valid;
@@ -14,14 +15,14 @@ public class BuildingServiceImpl implements BuildingService {
     @Autowired
     private BuildingRepository buildingRepository;
 
-
     @Override
     public List<Building> findByCompanyId(String companyId) {
         return buildingRepository.findByCompanyId(companyId);
     }
 
-    public List<Building> findByCompanyIdAndNameLike(String companyId, String name) {
-        return buildingRepository.findByCompanyIdAndNameLike(companyId, name);
+    public List<Building> findByCompanyIdAndNameLike(String companyId, String name, int page) {
+        return buildingRepository.findByCompanyIdAndNameLikeOrderByName(companyId, name, new PageRequest(page, 20))
+                .getContent();
     }
 
     @Override

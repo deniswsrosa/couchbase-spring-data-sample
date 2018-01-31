@@ -15,7 +15,7 @@ public interface BuildingService {
 
     Building findByCompanyAndAreaId(String companyId, String areaId);
 
-    List<Building> findByCompanyIdAndNameLike(String companyId, String name);
+    List<Building> findByCompanyIdAndNameLike(String companyId, String name, int page);
 
     List<Building> findByPhoneNumber(String telephoneNumber);
 

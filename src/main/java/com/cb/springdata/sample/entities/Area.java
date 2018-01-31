@@ -17,5 +17,4 @@ public class Area {
     private String name;
 
     private List<Area> areas = new ArrayList<>();
-
 }
